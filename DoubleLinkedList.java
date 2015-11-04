@@ -1,12 +1,29 @@
+/**
+ * The generic doubly linked list, capable of holding objects
+ * of any type.
+ * PiJ Lecture 11
+ * @author ocouls01
+ */
 public class DoubleLinkedList<T> {
+	/**
+	 * Two fields pointing to the head and tail of the list.
+	 */
+	
 	private ListObject<T> head;
 	private ListObject<T> tail;
 	
+	/**
+	 * Constructor initially sets both head and tail to null.
+	 */
 	public DoubleLinkedList() {
 		this.head = null;
 		this.tail = null;
 	}
 	
+	/**
+	 * Checks if the list is empty
+	 * @return true if it is empty, false otherwise
+	 */
 	public boolean isEmpty() {
 		if (head == null) {
 			return true;
@@ -16,6 +33,10 @@ public class DoubleLinkedList<T> {
 		}
 	}
 	
+	/**
+	 * Returns the current size of the list.
+	 * @return the size as an int.
+	 */
 	public int size() {
 		int result = 0;
 		ListObject<T> thisObj = head;
@@ -26,6 +47,10 @@ public class DoubleLinkedList<T> {
 		return result;
 	}
 	
+	/**
+	 * Adds an item of generic type to the end of the list.
+	 * @param item is the object to be added.
+	 */
 	public void add(T item) {
 		ListObject<T> newObject = new ListObject<T>(item);
 		if (isEmpty()) {
@@ -42,7 +67,12 @@ public class DoubleLinkedList<T> {
 				
 			}
 	}
-	
+	/**
+	 * Retrieves but doesn't remove an item from the list from a desired
+	 * position.
+	 * @return the object at that place
+	 * @param index the place in the list where the desired item is.
+	 */
 	public T get(int index) {
 		if ((index < 0)||(index >= size())) {
 			return null;
@@ -57,6 +87,11 @@ public class DoubleLinkedList<T> {
 		}
 	}
 	
+	/**
+	 * Retrieves and removes an item from a place in the list.
+	 * @return the object at that place
+	 * @param index the place in the list where the desired object is.
+	 */
 	public T remove(int index) {
 		ListObject<T> output = null;
 		if ((index < 0)||(index >= size())) {
@@ -67,7 +102,7 @@ public class DoubleLinkedList<T> {
 			return output.getContents();
 		} else {
 			ListObject<T> current = head;
-			for (int i = 0; i < index-1; i++) {
+			for (int i = 0; i < index; i++) {
 				current = current.getNext();
 			}
 			output = current.getNext();
