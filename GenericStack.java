@@ -3,11 +3,11 @@
  * PiJ Lecture 11 - ex 5
  * @author ocouls01
  */
-public class GenericStack<T> implements Stack<T> {
+public class GenericStack<N extends Number> implements Stack<N> {
 	/**
 	 * This stack will be based on a doubly linked list
 	 */
-	private DoubleLinkedList<T> list = new DoubleLinkedList<T>();
+	private DoubleLinkedList<N> list = new DoubleLinkedList<N>();
 	
 	/**
 	 * Determines if the stack is empty. 
@@ -29,7 +29,7 @@ public class GenericStack<T> implements Stack<T> {
 	 * Adds an element at the top of the stack. 
 	 * @param item the new item to be added
 	 */
-	public void push(T item) {
+	public void push(N item) {
 		list.add(item);
 	}
 
@@ -39,7 +39,7 @@ public class GenericStack<T> implements Stack<T> {
 	 * @return If stack is not empty, the item on the top is returned. If the
 	 *         stack is empty, an appropriate error.
 	 */
-	public T top() {
+	public N top() {
 		return list.get(list.size()-1);
 	}
 	/**
@@ -48,7 +48,7 @@ public class GenericStack<T> implements Stack<T> {
 	 * @return If stack is not empty, the item on the top is returned. If the
 	 *         stack is empty, an appropriate error.
 	 */
-	public T pop() {
+	public N pop() {
 		return list.remove(list.size()-1);
 	}
 }

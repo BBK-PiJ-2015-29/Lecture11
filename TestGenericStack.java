@@ -2,10 +2,10 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class TestGenericStack {
-	GenericStack<Integer> intStack;
+	GenericStack<Number> intStack;
  	@Before
 	public void SetUp() {
-		intStack = new GenericStack<Integer>();
+		intStack = new GenericStack<Number>();
 	}
 	
 	@Test
